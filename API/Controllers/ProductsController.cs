@@ -1,22 +1,33 @@
-using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
 using API.Models;
+using API.Repositories;
 
 namespace API.Controllers
 {
   [Route("api/v1")]
-  public class HomeController : Controller
+  public class ProductController : Controller
   {
+    private readonly ProductRepository _repository;
+
+    public ProductController(ProductRepository repository)
+    {
+      _repository = repository;
+    }
 
     [Route("products")]
     [HttpGet]
-    public IEnumerable<ProductModel> ListProducts()
+    public IEnumerable<ProductModel> GetListProducts()
     {
-      List<ProductModel> products = new List<ProductModel>();
+      return _repository.GetListProducts();
+    }
 
-      products.Add(new ProductModel{ Title = "Mouse" });
-
-      return products;
+    [Route("products")]
+    [HttpPost]
+    public string PostProduct([FromBody]ProductModel product)
+    {
+      _repository.CreateProduct(product);
+      return "Product saved!";
     }
   }
 }
