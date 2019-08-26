@@ -3,6 +3,7 @@ A simple API Restfull using ASP.NET Core, MVC and Entity Framework Core with Dat
 
 ## How to run the application local:
 > $ dotnet watch run
+
 The application will be running on port 5000
 
 ## How to build the project:
@@ -12,6 +13,7 @@ The application will be running on port 5000
 
 ### Get all Products => (Method GET)
 - /api/v1/products
+
 Should be return a list of products and status code(200):
 ```
 [
@@ -51,16 +53,20 @@ Should be created a product and return a message string:
 
 ### Get a Product by ID => (Method GET)
 - /api/v1/products/{product_id}
+
 comming soon...
 
 ### Update a Full Product by ID => (Method PUT)
 - /api/v1/products/{product_id}
+
 comming soon...
 
 ### Update a item of Product by ID => (Method PATCH)
 - /api/v1/products/{product_id}
+
 comming soon...
 
 ### Delete a Product by ID => (Method DELETE)
 - /api/v1/products/{product_id}
+
 comming soon...
